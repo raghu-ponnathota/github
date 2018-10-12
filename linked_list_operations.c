@@ -157,6 +157,30 @@ node* merge_list(node* head1, node* head2) {
         return res;
 }
 
+void sort_linkedlist(node *head) {
+
+    int n=0, i=0, j=0, t =0;
+    node* temp=NULL;
+    //count no. of nodes
+    for (temp = head; temp!= NULL; temp=temp->next)
+        i++;
+    n = i;
+
+    //now do bubble sort
+    for ( i =0; i<n; i++) {
+        temp =head;
+        for(j=0; j<n-i-1; j++) {
+            if (temp->val > temp->next->val) {
+                t = temp->val;
+                temp->val = temp->next->val;
+                temp->next->val = t;
+            }
+            temp = temp->next;
+        }
+    }
+}
+
+
 int main() {
         node *head = NULL, *temp = NULL, *head2=NULL, *result = NULL;
 
@@ -179,6 +203,15 @@ int main() {
         result = merge_list(head, head2); /// MERGE linked lists
         display_list(result);
         
+        //sorted linked list
+        reverse_list(&result);
+    	printf("\n display list before sorting: ");
+   		display_list(result);
+    	sort_linkedlist(result);
+    	printf("\n display list after sorting: ");
+	    display_list(result);
+
+
         del(2, &head);
         display_list(head);
         del(1, &head);
