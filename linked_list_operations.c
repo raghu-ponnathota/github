@@ -8,6 +8,7 @@ This program implements the following functionalities of a linked list.
 4. reverse linked list using recursive method
 5. display a list
 6. Merging two linked lists without using extra space.
+7. Sorting linked list using bubble sort
 
 */
 
